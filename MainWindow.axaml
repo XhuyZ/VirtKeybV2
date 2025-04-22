@@ -1,0 +1,123 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
+        x:Class="VirtualKeyboardApp.MainWindow"
+        Title="Bàn Phím Ảo"
+        MinWidth="800" MinHeight="550">
+
+	<Grid RowDefinitions="Auto,*">
+		<!-- Khu vực hiển thị văn bản -->
+		<Border Grid.Row="0" Margin="10" BorderBrush="Gray" BorderThickness="1" CornerRadius="5">
+			<TextBox Name="OutputTextBox" Height="100" AcceptsReturn="True" TextWrapping="Wrap"
+                     IsReadOnly="True" Watermark="Văn bản sẽ hiển thị ở đây..." />
+		</Border>
+
+		<!-- Bàn phím ảo -->
+		<Grid Grid.Row="1" Margin="10" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+
+			<!-- Hàng 1: Các phím chức năng -->
+			<StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+				<Button Content="Esc" Width="45" Height="45" Margin="2" Name="EscButton" Classes="KeyButton" />
+				<Button Content="F1" Width="45" Height="45" Margin="2" Name="F1Button" Classes="KeyButton" />
+				<Button Content="F2" Width="45" Height="45" Margin="2" Name="F2Button" Classes="KeyButton" />
+				<Button Content="F3" Width="45" Height="45" Margin="2" Name="F3Button" Classes="KeyButton" />
+				<Button Content="F4" Width="45" Height="45" Margin="2" Name="F4Button" Classes="KeyButton" />
+				<Button Content="F5" Width="45" Height="45" Margin="2" Name="F5Button" Classes="KeyButton" />
+				<Button Content="F6" Width="45" Height="45" Margin="2" Name="F6Button" Classes="KeyButton" />
+				<Button Content="F7" Width="45" Height="45" Margin="2" Name="F7Button" Classes="KeyButton" />
+				<Button Content="F8" Width="45" Height="45" Margin="2" Name="F8Button" Classes="KeyButton" />
+				<Button Content="F9" Width="45" Height="45" Margin="2" Name="F9Button" Classes="KeyButton" />
+				<Button Content="F10" Width="45" Height="45" Margin="2" Name="F10Button" Classes="KeyButton" />
+				<Button Content="F11" Width="45" Height="45" Margin="2" Name="F11Button" Classes="KeyButton" />
+				<Button Content="F12" Width="45" Height="45" Margin="2" Name="F12Button" Classes="KeyButton" />
+			</StackPanel>
+
+			<!-- Hàng 2: Phím số và một số ký tự đặc biệt -->
+			<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+				<Button Content="`" Width="45" Height="45" Margin="2" Name="GraveButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="1" Width="45" Height="45" Margin="2" Name="OneButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="2" Width="45" Height="45" Margin="2" Name="TwoButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="3" Width="45" Height="45" Margin="2" Name="ThreeButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="4" Width="45" Height="45" Margin="2" Name="FourButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="5" Width="45" Height="45" Margin="2" Name="FiveButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="6" Width="45" Height="45" Margin="2" Name="SixButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="7" Width="45" Height="45" Margin="2" Name="SevenButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="8" Width="45" Height="45" Margin="2" Name="EightButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="9" Width="45" Height="45" Margin="2" Name="NineButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="0" Width="45" Height="45" Margin="2" Name="ZeroButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="-" Width="45" Height="45" Margin="2" Name="MinusButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="=" Width="45" Height="45" Margin="2" Name="EqualsButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="⌫" Width="70" Height="45" Margin="2" Name="BackspaceButton" Classes="KeyButton Function" Click="BackspaceButton_Click" />
+			</StackPanel>
+
+			<!-- Hàng 3: Hàng phím chữ đầu tiên -->
+			<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+				<Button Content="Tab" Width="70" Height="45" Margin="2" Name="TabButton" Classes="KeyButton Function" Click="TabButton_Click" />
+				<Button Content="Q" Width="45" Height="45" Margin="2" Name="QButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="W" Width="45" Height="45" Margin="2" Name="WButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="E" Width="45" Height="45" Margin="2" Name="EButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="R" Width="45" Height="45" Margin="2" Name="RButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="T" Width="45" Height="45" Margin="2" Name="TButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="Y" Width="45" Height="45" Margin="2" Name="YButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="U" Width="45" Height="45" Margin="2" Name="UButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="I" Width="45" Height="45" Margin="2" Name="IButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="O" Width="45" Height="45" Margin="2" Name="OButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="P" Width="45" Height="45" Margin="2" Name="PButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="[" Width="45" Height="45" Margin="2" Name="LeftBracketButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="]" Width="45" Height="45" Margin="2" Name="RightBracketButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="\" Width="45" Height="45" Margin="2" Name="BackslashButton" Classes="KeyButton" Click="KeyButton_Click" />
+			</StackPanel>
+
+			<!-- Hàng 4: Hàng phím chữ thứ hai -->
+			<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+				<Button Content="Caps" Width="70" Height="45" Margin="2" Name="CapsLockButton" Classes="KeyButton Function" Click="CapsLockButton_Click" />
+				<Button Content="A" Width="45" Height="45" Margin="2" Name="AButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="S" Width="45" Height="45" Margin="2" Name="SButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="D" Width="45" Height="45" Margin="2" Name="DButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="F" Width="45" Height="45" Margin="2" Name="FButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="G" Width="45" Height="45" Margin="2" Name="GButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="H" Width="45" Height="45" Margin="2" Name="HButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="J" Width="45" Height="45" Margin="2" Name="JButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="K" Width="45" Height="45" Margin="2" Name="KButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="L" Width="45" Height="45" Margin="2" Name="LButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content=";" Width="45" Height="45" Margin="2" Name="SemicolonButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="'" Width="45" Height="45" Margin="2" Name="ApostropheButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="Enter" Width="85" Height="45" Margin="2" Name="EnterButton" Classes="KeyButton Function" Click="EnterButton_Click" />
+			</StackPanel>
+
+			<!-- Hàng 5: Hàng phím chữ thứ ba -->
+			<StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+				<Button Content="Shift" Width="85" Height="45" Margin="2" Name="ShiftButton" Classes="KeyButton Function" Click="ShiftButton_Click" />
+				<Button Content="Z" Width="45" Height="45" Margin="2" Name="ZButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="X" Width="45" Height="45" Margin="2" Name="XButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="C" Width="45" Height="45" Margin="2" Name="CButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="V" Width="45" Height="45" Margin="2" Name="VButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="B" Width="45" Height="45" Margin="2" Name="BButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="N" Width="45" Height="45" Margin="2" Name="NButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="M" Width="45" Height="45" Margin="2" Name="MButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="," Width="45" Height="45" Margin="2" Name="CommaButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="." Width="45" Height="45" Margin="2" Name="PeriodButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="/" Width="45" Height="45" Margin="2" Name="SlashButton" Classes="KeyButton" Click="KeyButton_Click" />
+				<Button Content="Shift" Width="85" Height="45" Margin="2" Name="RightShiftButton" Classes="KeyButton Function" Click="ShiftButton_Click" />
+			</StackPanel>
+
+			<!-- Hàng 6: Thanh Space và phím chức năng -->
+			<StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+				<Button Content="Ctrl" Width="60" Height="45" Margin="2" Name="CtrlButton" Classes="KeyButton Function" />
+				<Button Content="Win" Width="60" Height="45" Margin="2" Name="WinButton" Classes="KeyButton Function" />
+				<Button Content="Alt" Width="60" Height="45" Margin="2" Name="AltButton" Classes="KeyButton Function" />
+				<Button Content="Space" Width="270" Height="45" Margin="2" Name="SpaceButton" Classes="KeyButton" Click="SpaceButton_Click" />
+				<Button Content="Alt" Width="60" Height="45" Margin="2" Name="RightAltButton" Classes="KeyButton Function" />
+				<Button Content="Menu" Width="60" Height="45" Margin="2" Name="MenuButton" Classes="KeyButton Function" />
+				<Button Content="Ctrl" Width="60" Height="45" Margin="2" Name="RightCtrlButton" Classes="KeyButton Function" />
+			</StackPanel>
+
+			<!-- Thêm nút làm sạch văn bản -->
+			<Button Grid.Row="6" Content="Xóa văn bản" Margin="0,10,0,0"
+                    HorizontalAlignment="Center" Name="ClearButton"
+                    Click="ClearButton_Click"/>
+		</Grid>
+	</Grid>
+</Window>
