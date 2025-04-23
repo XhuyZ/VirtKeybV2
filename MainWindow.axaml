@@ -2,17 +2,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="580"
         x:Class="VirtualKeyboardApp.MainWindow"
         Title="Bàn Phím Ảo"
-        MinWidth="800" MinHeight="550">
+        MinWidth="800" MinHeight="580">
 
 	<Grid RowDefinitions="Auto,*">
-		<!-- Khu vực hiển thị văn bản -->
-		<Border Grid.Row="0" Margin="10" BorderBrush="Gray" BorderThickness="1" CornerRadius="5">
-			<TextBox Name="OutputTextBox" Height="100" AcceptsReturn="True" TextWrapping="Wrap"
-                     IsReadOnly="True" Watermark="Văn bản sẽ hiển thị ở đây..." />
-		</Border>
+		<!-- Khu vực hiển thị văn bản và điều khiển -->
+		<Grid Grid.Row="0" RowDefinitions="Auto,Auto" Margin="10">
+			<!-- Text display area -->
+			<Border Grid.Row="0" BorderBrush="Gray" BorderThickness="1" CornerRadius="5">
+				<TextBox Name="OutputTextBox" Height="100" AcceptsReturn="True" TextWrapping="Wrap"
+                         IsReadOnly="True" Watermark="Văn bản sẽ hiển thị ở đây..." />
+			</Border>
+
+			<!-- Control panel -->
+			<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+				<Button Content="Xóa văn bản" Margin="5,0" Name="ClearButton" Click="ClearButton_Click"/>
+				<Button Content="Switch to External Typing" Margin="5,0" Name="ToggleExternalButton" Click="ToggleExternalTyping_Click"/>
+				<TextBlock VerticalAlignment="Center" Margin="10,0,0,0" Name="StatusText">
+					Status: Internal Typing Mode
+				</TextBlock>
+			</StackPanel>
+		</Grid>
 
 		<!-- Bàn phím ảo -->
 		<Grid Grid.Row="1" Margin="10" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
@@ -105,19 +117,21 @@
 
 			<!-- Hàng 6: Thanh Space và phím chức năng -->
 			<StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
-				<Button Content="Ctrl" Width="60" Height="45" Margin="2" Name="CtrlButton" Classes="KeyButton Function" />
+				<Button Content="Ctrl" Width="60" Height="45" Margin="2" Name="CtrlButton" Classes="KeyButton Function" Click="CtrlButton_Click" />
 				<Button Content="Win" Width="60" Height="45" Margin="2" Name="WinButton" Classes="KeyButton Function" />
-				<Button Content="Alt" Width="60" Height="45" Margin="2" Name="AltButton" Classes="KeyButton Function" />
+				<Button Content="Alt" Width="60" Height="45" Margin="2" Name="AltButton" Classes="KeyButton Function" Click="AltButton_Click" />
 				<Button Content="Space" Width="270" Height="45" Margin="2" Name="SpaceButton" Classes="KeyButton" Click="SpaceButton_Click" />
-				<Button Content="Alt" Width="60" Height="45" Margin="2" Name="RightAltButton" Classes="KeyButton Function" />
+				<Button Content="Alt" Width="60" Height="45" Margin="2" Name="RightAltButton" Classes="KeyButton Function" Click="AltButton_Click" />
 				<Button Content="Menu" Width="60" Height="45" Margin="2" Name="MenuButton" Classes="KeyButton Function" />
-				<Button Content="Ctrl" Width="60" Height="45" Margin="2" Name="RightCtrlButton" Classes="KeyButton Function" />
+				<Button Content="Ctrl" Width="60" Height="45" Margin="2" Name="RightCtrlButton" Classes="KeyButton Function" Click="CtrlButton_Click" />
 			</StackPanel>
 
-			<!-- Thêm nút làm sạch văn bản -->
-			<Button Grid.Row="6" Content="Xóa văn bản" Margin="0,10,0,0"
-                    HorizontalAlignment="Center" Name="ClearButton"
-                    Click="ClearButton_Click"/>
+					<!-- External typing mode indicator - update this in your XAML file -->
+			<Border Grid.Row="6" Background="#FFEEEE" CornerRadius="5" Margin="0,10" Padding="5"
+					IsVisible="False" HorizontalAlignment="Center" Name="ExternalModeIndicator">
+				<TextBlock Text="EXTERNAL TYPING MODE: Keystrokes will be sent to other applications"
+						   Foreground="#CC0000" FontWeight="Bold"/>
+			</Border>
 		</Grid>
 	</Grid>
 </Window>
